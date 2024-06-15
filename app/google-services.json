@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "626860889070",
+    "project_id": "fir-tutorialjetpackcompose",
+    "storage_bucket": "fir-tutorialjetpackcompose.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:626860889070:android:7cea62fdafb920dad3b4ff",
+        "android_client_info": {
+          "package_name": "com.example.firebasetutorialjetpackcompose"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABpp2dqdJGeEmlLREf81oo2hK1WiMg5vY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
