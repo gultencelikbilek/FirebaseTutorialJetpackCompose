@@ -28,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.firebasetutorialjetpackcompose.R
 import com.example.firebasetutorialjetpackcompose.firebase.screen.ButtonComponent
 import com.example.firebasetutorialjetpackcompose.firebase.screen.CheckboxComponent
@@ -87,4 +88,12 @@ fun CreateAccountScreen(
             DividerTextComponent()
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun x(modifier: Modifier = Modifier) {
+
+    val navController = rememberNavController()
+    CreateAccountScreen(navController =navController )
 }
