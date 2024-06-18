@@ -15,6 +15,7 @@ materialIconsExtendedAndroid = "1.6.7"
 hilt = "2.48"
 hiltAndroid = "2.48"
 hiltNavigationCompose = "1.2.0"
+playServicesAuth = "21.2.0"
 
 
 
@@ -40,6 +41,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 
 
 [plugins]

@@ -77,4 +77,6 @@ dependencies {
     implementation (libs.hilt.android)
     kapt (libs.hilt.compiler)
     implementation (libs.androidx.hilt.navigation.compose)
+    //Google auth dependency
+    implementation (libs.play.services.auth)
 }

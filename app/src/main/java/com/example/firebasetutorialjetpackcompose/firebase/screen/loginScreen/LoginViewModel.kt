@@ -1,10 +1,14 @@
 package com.example.firebasetutorialjetpackcompose.firebase.screen.loginScreen
 
 import android.util.Log
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.firebasetutorialjetpackcompose.firebase.Resource
 import com.example.firebasetutorialjetpackcompose.firebase.auth.AuthRepository
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.AuthResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,6 +23,26 @@ class LoginViewModel @Inject constructor(
 
     private val _loginState = Channel<LoginState>()
     val loginState = _loginState.receiveAsFlow()
+
+    private val _googleSignInState = mutableStateOf(GoogleSignInState())
+    val googleSignInState : State<GoogleSignInState> = _googleSignInState
+
+    fun signInWithGoogle(credential: AuthCredential) = viewModelScope.launch {
+        authRepository.googleSignIn(credential).collect{result ->
+            when(result){
+                is Resource.Failure -> {
+                    _googleSignInState.value = GoogleSignInState(isFailure = result.msg.toString())
+                }
+                is Resource.Loading -> {
+                    _googleSignInState.value = GoogleSignInState(isLoading = true)
+                }
+                is Resource.Success -> {
+                    _googleSignInState.value =  GoogleSignInState(isSuccess = result.data)
+                }
+            }
+        }
+    }
+
 
     fun loginUser(email : String, password : String) = viewModelScope.launch {
         authRepository.loginUser(email, password).collect{result ->
@@ -41,4 +65,10 @@ data class LoginState(
     val isSuccess : String? = null,
     val isLoading : Boolean = false,
     val isError : String? = null
+)
+
+data class GoogleSignInState(
+    val isSuccess  : AuthResult? = null,
+    val isLoading : Boolean = false,
+    val isFailure : String? = null
 )

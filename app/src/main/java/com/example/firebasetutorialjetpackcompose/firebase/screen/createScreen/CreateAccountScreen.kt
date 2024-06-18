@@ -34,10 +34,12 @@ import com.example.firebasetutorialjetpackcompose.firebase.screen.ButtonComponen
 import com.example.firebasetutorialjetpackcompose.firebase.screen.CheckboxComponent
 import com.example.firebasetutorialjetpackcompose.firebase.screen.DividerTextComponent
 import com.example.firebasetutorialjetpackcompose.firebase.screen.HeaderTextComponent
-import com.example.firebasetutorialjetpackcompose.firebase.screen.MyTextField
+import com.example.firebasetutorialjetpackcompose.firebase.screen.EmailTextField
+import com.example.firebasetutorialjetpackcompose.firebase.screen.GoogleButton
 import com.example.firebasetutorialjetpackcompose.firebase.screen.MyTextFieldFirstNameAndLastName
 import com.example.firebasetutorialjetpackcompose.firebase.screen.PasswordMyTextField
 import com.example.firebasetutorialjetpackcompose.firebase.screen.TextComponent
+import com.example.firebasetutorialjetpackcompose.navigation.Screen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -54,9 +56,10 @@ fun CreateAccountScreen(
         mutableStateOf("")
     }
     val context = LocalContext.current
-    val state by viewModel.cretaeState.collectAsState(initial = CreateState())
+    val state by viewModel.cretaeState.collectAsState(initial = CreateState())//viewmodel.createState içindeki durumlar iszlenir
 
-    LaunchedEffect(state) {
+
+    LaunchedEffect(state) { //state içindeki durumlara göre işlemler yapılır
         if (state.isSuccess != "") {
             Toast.makeText(context, state.isSuccess, Toast.LENGTH_SHORT).show()
         }
@@ -79,13 +82,16 @@ fun CreateAccountScreen(
             Spacer(modifier = Modifier.height(20.dp))
             MyTextFieldFirstNameAndLastName(labelValue = stringResource(id = R.string.first_name), imageVector = Icons.Outlined.Person)
             MyTextFieldFirstNameAndLastName(labelValue = stringResource(id = R.string.last_name), imageVector = Icons.Outlined.Person)
-            MyTextField(labelValue = stringResource(id = R.string.email), imageVector = Icons.Outlined.Email, onValueChange = { email = it })
+            EmailTextField(labelValue = stringResource(id = R.string.email), imageVector = Icons.Outlined.Email, onValueChange = { email = it })
             PasswordMyTextField(labelValue = stringResource(id = R.string.password), imageVector = Icons.Outlined.Lock, onValueChange = { password = it })
             CheckboxComponent(value = stringResource(id = R.string.terms_of_condition))
             ButtonComponent(value = "Register", onClick = {
                 viewModel.createUser(email, password)
+                navController.navigate(Screen.LoginCreateAccountScreen.route)
             })
             DividerTextComponent()
+
+
         }
     }
 }
