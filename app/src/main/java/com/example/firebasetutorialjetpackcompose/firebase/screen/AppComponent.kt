@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
@@ -30,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -116,7 +118,7 @@ fun MyTextFieldFirstNameAndLastName(labelValue: String, imageVector: ImageVector
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTextField(
+fun EmailTextField(
     labelValue: String,
     imageVector: ImageVector,
     onValueChange: (String) -> Unit
@@ -288,5 +290,14 @@ fun DividerTextComponent() {
             thickness = 1.dp
         )
 
+    }
+}
+
+@Composable
+fun GoogleButton(onClick: () -> Unit) {
+    Button(
+        onClick = onClick
+    ) {
+        Icon(painter = painterResource(id = R.drawable.google), contentDescription = "",modifier = Modifier.size(50.dp))
     }
 }

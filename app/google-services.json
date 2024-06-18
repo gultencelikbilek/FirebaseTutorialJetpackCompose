@@ -12,7 +12,20 @@
           "package_name": "com.example.firebasetutorialjetpackcompose"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "626860889070-qmlg67br5phjq5c5sabsffno4cjf9mvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebasetutorialjetpackcompose",
+            "certificate_hash": "7ed7987827e814feae55831259285a0f2a0e0635"
+          }
+        },
+        {
+          "client_id": "626860889070-v22rn1lq8b2kdm53gdkt27cch4t22kqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyABpp2dqdJGeEmlLREf81oo2hK1WiMg5vY"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626860889070-v22rn1lq8b2kdm53gdkt27cch4t22kqa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

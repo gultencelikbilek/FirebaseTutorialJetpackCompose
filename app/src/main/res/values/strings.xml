@@ -11,4 +11,6 @@
     <string name="terms_of_condition">By continuing you accept our <u>Privacy Policy</u> and \n <u>Terms of Use</u></string>
     <string name="terms_of_use">Terms of Use</string>
     <string name="or">or</string>
+    <string name="login_title">Login Screen</string>
+    <string name="login">Login</string>
 </resources>
