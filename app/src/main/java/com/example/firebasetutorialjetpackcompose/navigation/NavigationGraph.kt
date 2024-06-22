@@ -1,14 +1,13 @@
 package com.example.firebasetutorialjetpackcompose.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.firebasetutorialjetpackcompose.firebase.screen.createScreen.CreateAccountScreen
 import com.example.firebasetutorialjetpackcompose.firebase.screen.first_screen.FirstScreen
 import com.example.firebasetutorialjetpackcompose.firebase.screen.loginScreen.LoginScreen
-import com.example.firebasetutorialjetpackcompose.firebase.screen.login_create_acc_screen.LoginCreateAccountScreen
+import com.example.firebasetutorialjetpackcompose.firebase.screen.firestore.FireStoreScreen
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
@@ -24,7 +23,7 @@ fun NavigationGraph(navController: NavHostController) {
             FirstScreen(navController = navController)
         }
         composable(route = Screen.LoginCreateAccountScreen.route){
-            LoginCreateAccountScreen()
+            FireStoreScreen()
         }
     }
 }
